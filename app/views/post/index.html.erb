@@ -1,0 +1,27 @@
+<h1>게시판</h1>
+
+<a href='/post/new'>글쓰러 가기</a>
+
+<% @post.each do |x| %>
+    <hr>
+    <a href = '/post/show/<%= x.id %>'> <%= x.title %></a><br>
+<% end %>
+
+
+<form action='/post/index'>
+  
+  내용:<br>
+  <input type="text" name="search">
+  <input type='submit' name="등록">
+</form>
+
+<% if @select.present? %>
+    <%= @select.each do |x| %>
+    <%= x.title %><br>
+    <%= x.content %>
+    <% end %>
+
+<% else %>
+    <h1> 검색한 결과가 없습니다.</h1>
+<% end %>
+    
